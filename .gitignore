@@ -7,3 +7,10 @@
 /dist
 Manipulador de PDF/comandos.txt
 *.pdf
+*.zip
+*.toc
+*.html
+*.txt
+
+*.txt
+*.png
