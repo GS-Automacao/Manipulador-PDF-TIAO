@@ -28,5 +28,6 @@ def f22() -> int:
                     nome2 = rows[20]
                     new_path = f'NF {nome2}-{cnpj2}.pdf'
                     os.rename(file, new_path)
+                    break
 
     return n_pags

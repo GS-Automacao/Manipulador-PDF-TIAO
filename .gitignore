@@ -11,6 +11,7 @@ Manipulador de PDF/comandos.txt
 *.toc
 *.html
 *.txt
-
 *.txt
 *.png
+*.pyz
+*.pkg
