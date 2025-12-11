@@ -58,10 +58,10 @@ NAMES = {
     20: 'Folha por Centro de Custo Protheus',
     21: 'Recibos de Pagamento Protheus',
     22: 'NFs Camaçari',
-    23: 'Nfs Lauro de Freitas',
-    24: 'Nfs Balneário Camburiu',
-    25: 'Nfs Vitória',
+    23: 'NFs Lauro de Freitas',
+    24: 'NFs Balneário Camburiu',
+    25: 'NFs Vitória',
     26: 'Boletos Santander',
-    27: 'Nfs Curitiba',
-    28: 'Nfs São Paulo'
+    27: 'NFs Curitiba',
+    28: 'NFs São Paulo'
 }
