@@ -4,7 +4,7 @@ import ctypes
 import os
 import sys
 
-VERSION: str = 'v1.6.7'
+VERSION: str = 'v1.6.9'
 
 
 def run():
