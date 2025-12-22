@@ -28,7 +28,7 @@ def f27() -> int:
             nome_novo = " ".join(nome_antigo)
             n_nf = pegar_numeros(text[118])
             
-        novo_nome = f'{data_nova} - {nome_novo} - {n_nf}.pdf'
+        novo_nome = f'NF {data_nova} - {nome_novo} - {n_nf}.pdf'
 
         os.rename(file, novo_nome)
     

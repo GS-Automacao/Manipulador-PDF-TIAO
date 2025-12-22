@@ -21,6 +21,6 @@ def f28():
             nome_antigo = text[100:104]
             nome_novo = ' '.join(nome_antigo)
             
-        nome_arquivo = f'{data_nova} - {nome_novo} - 0000000.pdf'
+        nome_arquivo = f'NF {data_nova} - {nome_novo} - 0000000.pdf'
         os.rename(file, nome_arquivo)
     

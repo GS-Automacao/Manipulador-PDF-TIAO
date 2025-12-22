@@ -11,7 +11,7 @@ def pegar_texto(texto: str):
     return ''.join(re.findall(r'[A-Za-zÀ-ÖØ-öø-ÿ ]+', str(texto)))
 
 def f27() -> int:
-    file = '-22121.pdf'
+    file = '1710BOLETOS-1.pdf'
     
     with open(file, 'rb') as file_bin:
         pdf = PdfReader(file_bin)
@@ -19,6 +19,5 @@ def f27() -> int:
         text = page.extract_text().split('\n')
         for i in enumerate(text):
             print(i)
-            
-    
+        
 f27()

@@ -25,7 +25,7 @@ def f25() -> int:
             if 'Nome/Razão Social' in row:
                 nome_cliente = row[18:]
                 nome_cliente = nome_cliente.translate(str.maketrans({'/': '', '\\': '', '|': ''}))
-                novo_nome = f'{nome_cliente}-{num_nf}.pdf'
+                novo_nome = f'NF {nome_cliente}-{num_nf}.pdf'
                 os.rename(file, novo_nome)
                 break
         
@@ -35,7 +35,7 @@ def f25() -> int:
                 nome_cliente = rows[19].split(':')
                 nome_cliente = nome_cliente[1:]
                 nome_cliente = pegar_texto(nome_cliente)
-                novo_nome = f'{nome_cliente}-{n_nota}.pdf'
+                novo_nome = f'NF {nome_cliente}-{n_nota}.pdf'
                 os.rename(file, novo_nome)
                 break
 
@@ -45,6 +45,6 @@ def f25() -> int:
                 nome_cliente2 = rows[18].split()
                 nome_cliente2 = nome_cliente2[2:]
                 nome_cliente2 = pegar_texto(nome_cliente2)
-                novo_nome = f'{nome_cliente2}-{n_nota2}.pdf'
+                novo_nome = f'NF {nome_cliente2}-{n_nota2}.pdf'
                 os.rename(file, novo_nome)
                 break
