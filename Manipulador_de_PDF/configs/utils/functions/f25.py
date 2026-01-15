@@ -1,3 +1,4 @@
+from email.mime import text
 from PyPDF2 import PdfReader
 from tqdm import tqdm
 import os
@@ -9,9 +10,26 @@ def pegar_numeros(texto: str):
 def pegar_texto(texto: str):
     return ''.join(re.findall(r'[A-Za-zÀ-ÖØ-öø-ÿ ]+', str(texto)))
 
+def pegar_maiusculas(texto: str) -> str:
+    return ''.join(re.findall(r'[A-ZÀ-ÖØ-Þ ]', texto))
+
+def gerar_nome_unico(nome_base: str) -> str:
+    if not os.path.exists(nome_base):
+        return nome_base
+
+    nome, ext = os.path.splitext(nome_base)
+    contador = 1
+
+    while True:
+        novo_nome = f"{nome} ({contador}){ext}"
+        if not os.path.exists(novo_nome):
+            return novo_nome
+        contador += 1
+
 
 def f25() -> int:
     files = [file for file in os.listdir() if file.lower().endswith('.pdf')]
+    palavras_ignoradas = ['E-mail', 'Email']
     n_arqs = len(files)
     for file in tqdm(files):
         with open(file, 'rb') as file_bin:
@@ -40,11 +58,14 @@ def f25() -> int:
                 break
 
             else:
-                n_nota2 = rows[4]
-                n_nota2 = pegar_numeros(n_nota2)
-                nome_cliente2 = rows[18].split()
-                nome_cliente2 = nome_cliente2[2:]
-                nome_cliente2 = pegar_texto(nome_cliente2)
-                novo_nome = f'NF {nome_cliente2}-{n_nota2}.pdf'
+                cliente = rows[37]
+                cliente = cliente.split()
+                cliente = ' '.join(cliente)
+                cliente = pegar_texto(cliente)
+                if any(palavra in cliente for palavra in palavras_ignoradas):
+                    cliente = cliente.replace('E-mail', '').replace('Email', '').strip()
+                cliente = pegar_maiusculas(cliente)
+                novo_nome = f'NF - {cliente}.pdf'
+                novo_nome = gerar_nome_unico(novo_nome)
                 os.rename(file, novo_nome)
                 break

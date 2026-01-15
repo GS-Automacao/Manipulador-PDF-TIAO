@@ -1,34 +1,44 @@
+import os
 from PyPDF2 import PdfReader
 from tqdm import tqdm
 import re
-import os
+
+def gerar_nome_unico(nome_base: str) -> str:
+    if not os.path.exists(nome_base):
+        return nome_base
+
+    nome, ext = os.path.splitext(nome_base)
+    contador = 1
+
+    while True:
+        novo_nome = f"{nome} ({contador}){ext}"
+        if not os.path.exists(novo_nome):
+            return novo_nome
+        contador += 1
 
 
-def pegar_numeros(texto: str):
-    return ''.join(re.findall(r'\d+', str(texto)))
-
+def pegar_maiusculas(texto: str) -> str:
+    return ''.join(re.findall(r'[A-ZÀ-ÖØ-Þ ]', texto))
 
 def f27() -> int:
-    files = [file for file in os.listdir() if file.lower().endswith('.pdf')]
-    n_arqs = len(files)
+    files = [f for f in os.listdir() if f.lower().endswith('.pdf')]
+
     for file in tqdm(files):
+
+        novo_nome = None
+
         with open(file, 'rb') as file_bin:
             pdf = PdfReader(file_bin)
             page = pdf.pages[0]
-            text = page.extract_text().split()
-            
-            
-            data_antiga = text[13].split('/')
-            data_antiga = data_antiga[1:3]
-            data_nova = ' ' .join(data_antiga)
-                
-                
-                
-            nome_antigo = text[81:85]
-            nome_novo = " ".join(nome_antigo)
-            n_nf = pegar_numeros(text[118])
-            
-        novo_nome = f'NF {data_nova} - {nome_novo} - {n_nf}.pdf'
+            text = page.extract_text().split('\n')
 
-        os.rename(file, novo_nome)
-    
+            for row in text:
+                if row.startswith('DANFSe v1.0'):
+                    cliente = text[30]
+                    nome_base = f'NF - {cliente}.pdf'
+                    novo_nome = gerar_nome_unico(nome_base)
+                    break
+
+        if novo_nome:
+            os.rename(file, novo_nome)
+
