@@ -1,44 +1,49 @@
-Manipulador de pdf TIão
+# **MANIPULADOR DE PDF**
 
 
-Descrição geral:
-Em resumo o manipulador de pdfs, é responsável, por renomeia pdfs , vários tipos de arquivo, (arquivos mapeados) obj principal: 
-renomear nota fiscal e boleto. de preifeturas como Fortalez eusebio vitória , etc.
+### DESCRIÇÃO GERAL
+> Em resumo o manipulador de pdfs, é responsável, por renomeia pdfs , vários tipos de arquivo, (arquivos mapeados) obj principal: 
+> renomear nota fiscal e boleto. de preifeturas como Fortalez eusebio vitória , etc.
 
-Funções Gerais:
+### FUNÇÕES
 
-1:Documentos de Admissão:
-Abre o arquivo, procura o nome do colaborador e renomeia o 
-arquivo do colaborador com o nome do colaborador 
+#### DOCUMENTOS DE ADIMISSÃO:
+> Abre o arquivo, procura o nome do colaborador e renomeia o 
+> arquivo do colaborador com o nome do colaborador 
 
-2:Documentos de Rescisão':
-Abre o arquivo, procura o nome do colaborador e renomeia o arquivo
- do colaborador com o nome do colaborador.
 
-3: 'Boletos BMP':
-Abre o arquivo, procura o nome do cliente e renomeia o arquivo
- do cliente com o nome do cliente
+#### DOCUMENTOS DE RECISSÃO:
+> Abre o arquivo, procura o nome do colaborador e renomeia o arquivo
+> do colaborador com o nome do colaborador.
 
- 4: 'Boletos de Cobrança':
-Terá duas opções de boleto para o cliente escolher e definir o boleto , enumeradas sendo:
-0- Definir boleto como adm
-para despesa
-Para nenhum 
 
-Ao final da execução ele vai renomear o bleto seguindo padrão, no qual, se a pessoa escolher entre 0 e 1 , o arquivo vcem nomeado como: 
-prefixo-condomínio-cnpj.pdf , caso o usuário escolher o número 2, o arquivo vem nomeado como: condomínio-cnpj.pdf.
+#### BOLETOS BMP:
+> Abre o arquivo, procura o nome do cliente e renomeia o arquivo
+>do cliente com o nome do cliente
 
-5: 'Fichas de Registro':
- Abre o arquivo, procura o nome do colaborador e renomeia o
-arquivo do colaborador com o nome do colaborador.
 
-6: 'Folha de Pagamento, Férias e Rescisão':
+#### BOLETOS DE COBRANÇA:
+> Terá duas opções de boleto para o cliente escolher e definir o boleto , enumeradas sendo:
+>0. Definir boleto como adm
+>1. para despesa
+>2. Para nenhum 
+>
+>Ao final da execução ele vai renomear o bleto seguindo padrão, no qual, se a pessoa escolher entre 0 e 1 , o arquivo vcem nomeado como: 
+>prefixo-condomínio-cnpj.pdf , caso o usuário escolher o número 2, o arquivo vem nomeado como: condomínio-cnpj.pdf.
 
-Ele vai ler o arquivo, vai verificar se o arquivo será folha de pagamento, listagem de férias ou listagem de recissão.
-Dependendo do que o arqivo for, ele vai nomea-lo como : Tipo/lotação-cnpj.
+#### Fichas de Registro:
 
-7: 're FGTS':
-Ele renomeia o arquivo, colocando o cnpj do cliente.
+> Abre o arquivo, procura o nome do colaborador e renomeia o
+>arquivo do colaborador com o nome do colaborador.
+
+####FOLHA DE PAGAMENTO, FÉRIAS E RECISSÃO:
+
+> Ele vai ler o arquivo, vai verificar se o arquivo será folha de pagamento, listagem de férias ou listagem de recissão.
+> Dependendo do que o arqivo for, ele vai nomea-lo como : Tipo/lotação-cnpj.
+
+>####RE FGTS:
+
+>Ele renomeia o arquivo, colocando o cnpj do cliente.
 
 8: 'Listagem de Conferência:
 O pdf será renomeado como lotação do colaborador
