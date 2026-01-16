@@ -1,48 +1,71 @@
-DOCUMENTAÇÃO - Manipulador de PDF
-
-Pra que serve?
-
-I - O bot em si, serve para manipular de varias formas diferentes os tipos de pdf.
-
-II - Para cada um desses tipos de pdfs, ele excuta uma função diferente, por exemplo:
-
--> DECLARAÇÃO DE DEPENDENTES PARA FINS DE IMPOSTO DE RENDA
-
--> TERMO LDPD
-
--> R E C I B O D E E N T R E G A D A C A R T E I R A D E T R A B A L H O
-
--> carimbo e visto da empresa
-
--> CTPS DIGITAL
-
--> TERMO DE COMPROMISSO DE VALE-TRANSPORTE
-
--> SSPNome
-
--> TERMO COLETIVO DE CESSÃO GRATUITA DE USO DE IMAGEM PARA DIVULGAÇÃO
-
--> REGISTRO DE EMPREGADONúmero
-
--> Termo de Responsabilidade
-
--> Contrato de Experiência de Trabalho
-
--> AUTODECLARAÇÃO ÉTNICO-RACIAL
-
--> TERMO LGPD
-
--> CLÁUSULA TERCEIRA: COMPARTILHAMENTO DE DADOS
-
--> CLÁUSULA QUARTA: RESPONSABILIDADE PELA SEGURANÇA DE DADOS
-
--> CLÁUSULA QUINTA: TÉRMINO DO TRATAMENTO DOS DADOS
+Manipulador de pdf TIão
 
 
-Como o código funciona?
+Descrição geral:
+Em resumo o manipulador de pdfs, é responsável, por renomeia pdfs , vários tipos de arquivo, (arquivos mapeados) obj principal: 
+renomear nota fiscal e boleto. de preifeturas como Fortalez eusebio vitória , etc.
 
-1) Deve-se escolher uma das opções listadas.
-   
-2) Logo após o robô executara a função correspondente a opção escolhida.
-   
-3) Por fim ele organizará o arquivo pdf escolhido por você.
+Funções Gerais:
+
+1:Documentos de Admissão:
+Abre o arquivo, procura o nome do colaborador e renomeia o 
+arquivo do colaborador com o nome do colaborador 
+
+2:Documentos de Rescisão':
+Abre o arquivo, procura o nome do colaborador e renomeia o arquivo
+ do colaborador com o nome do colaborador.
+
+3: 'Boletos BMP':
+Abre o arquivo, procura o nome do cliente e renomeia o arquivo
+ do cliente com o nome do cliente
+
+ 4: 'Boletos de Cobrança':
+Terá duas opções de boleto para o cliente escolher e definir o boleto , enumeradas sendo:
+0- Definir boleto como adm
+para despesa
+Para nenhum 
+
+Ao final da execução ele vai renomear o bleto seguindo padrão, no qual, se a pessoa escolher entre 0 e 1 , o arquivo vcem nomeado como: 
+prefixo-condomínio-cnpj.pdf , caso o usuário escolher o número 2, o arquivo vem nomeado como: condomínio-cnpj.pdf.
+
+5: 'Fichas de Registro':
+ Abre o arquivo, procura o nome do colaborador e renomeia o
+arquivo do colaborador com o nome do colaborador.
+
+6: 'Folha de Pagamento, Férias e Rescisão':
+
+Ele vai ler o arquivo, vai verificar se o arquivo será folha de pagamento, listagem de férias ou listagem de recissão.
+Dependendo do que o arqivo for, ele vai nomea-lo como : Tipo/lotação-cnpj.
+
+7: 're FGTS':
+Ele renomeia o arquivo, colocando o cnpj do cliente.
+
+8: 'Listagem de Conferência:
+O pdf será renomeado como lotação do colaborador
+
+9: 'Recibos de Pagamento Fortes':
+Ao executar o robô , o usuário terá duas opções para escolher sendo :
+Separar por funcionário
+Separar por lotação
+Se a ecolha do usuário for igual a 1: 
+Os arquivos serão separados como : lotação-nome-cnpj, caso contrário o arquivo será nomeado por lotação, como mostrado no modelo a seguir
+    10: 'Recibos FOLK',
+    11: 'Relatório de Serviços Administrativos',
+    12: 'Resumo Geral Mês/Período',
+    13: 'NFs Fortaleza',
+    14: 'Demonstrativo de Férias',
+    15: 'NFs Eusébio',
+    16: 'Cartas Singular',
+    17: 'Rendimentos Protheus',
+    18: 'Rendimentos Fortes',
+    19: 'Planos de Saúde',
+    20: 'Folha por Centro de Custo Protheus',
+    21: 'Recibos de Pagamento Protheus',
+    22: 'NFs Camaçari',
+    23: 'NFs Lauro de Freitas',
+    24: 'NFs Balneário Camburiu',
+    25: 'NFs Vitória',
+    26: 'Boletos Santander',
+    27: 'NFs Curitiba',
+    28: 'NFs São Paulo',
+    29: 'Boletos Vitoria'
