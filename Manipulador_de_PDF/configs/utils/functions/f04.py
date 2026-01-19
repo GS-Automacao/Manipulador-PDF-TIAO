@@ -1,40 +1,78 @@
-from PyPDF2 import PdfReader, PdfWriter
+from PyPDF2 import PdfReader
 from tqdm import tqdm
 import os
+import re
+
+def pegar_numeros(texto: str):
+    return ''.join(re.findall(r'\d+', str(texto)))
+
+def nome_unico(caminho):
+    if not os.path.exists(caminho):
+        return caminho
+
+    base, ext = os.path.splitext(caminho)
+    contador = 1
+    while True:
+        novo = f"{base}_{contador}{ext}"
+        if not os.path.exists(novo):
+            return novo
+        contador += 1
 
 
 def f04() -> int:
-    # Cria a pasta de destino dos recibos
     if not os.path.exists('Arquivos'):
         os.mkdir('Arquivos')
-    tot_pags: int = 0
+
+    tot_pags = 0
+
     prefixos = {
-        '0': 'Boleto Adm -',
+        '0': 'Boleto Adm - ',
         '1': 'Boleto Despesa - '
     }
-    print('Digite '
-          '0 para definir os boletos como ADM;'
-          '1 para Despesa;'
-          '2 para nenhum.\n')
-    r = input()
+
+    print(
+        'Digite:\n'
+        '0 para definir os boletos como ADM\n'
+        '1 para Despesa\n'
+        '2 para nenhum\n'
+    )
+
+    r = input().strip()
     prefixo = prefixos.get(r, '')
-    # Itera por todos os arquivos .pdf.
-    for arq in [file for file in os.listdir() if '.pdf' in file]:
+
+    for arq in [f for f in os.listdir() if f.lower().endswith('.pdf')]:
+        condominio = None
+
         with open(arq, 'rb') as file:
-            # Cria um objeto PdfFileReader para ler o conteúdo do arquivo PDF
             pdf_reader = PdfReader(file)
             tot_pags += len(pdf_reader.pages)
-            # Itera sobre todas as páginas do PDF
-            for page_pdf in tqdm(pdf_reader.pages):
-                page = page_pdf.extract_text().split('\n')
-                for i, row in enumerate(page):
-                    if 'CEP:Data Vencimento:' in row:
-                        condominio = row[row.rfind(':') + 1:]
-                        cnpj = ''.join(char for char in page[i + 1] if char.isnumeric())
-                        break
-                nome_arq = f'Arquivos/{prefixo}{condominio}-{cnpj}.pdf'
-                writer = PdfWriter()
-                writer.add_page(page_pdf)
-                with open(nome_arq, 'wb') as output:
-                    writer.write(output)
+
+            for page_pdf in tqdm(pdf_reader.pages, desc=arq):
+                texto = page_pdf.extract_text()
+                if not texto:
+                    continue
+
+                linhas = texto.split('\n')
+
+                for row in linhas:
+                    try:
+                        if 'CEP:Data Vencimento:' in row:
+                            condominio = row[row.rfind(':') + 1:].strip()
+                            data_venc = linhas[51]
+                            data_venc = pegar_numeros(data_venc)
+                            break
+                    except:
+                        data_venc = linhas[49]
+                        data_venc = pegar_numeros(data_venc)
+                        continue            
+                if condominio:
+                    break
+
+        # arquivo já está fechado aqui
+        if condominio:
+            destino = f"Boleto {condominio} Venc {data_venc}-.pdf"
+            destino = nome_unico(destino)
+            os.rename(arq, destino)
+        else:
+            continue
     return tot_pags
