@@ -57,15 +57,12 @@ def f25() -> int:
                 os.rename(file, novo_nome)
                 break
 
-            else:
-                cliente = rows[37]
-                cliente = cliente.split()
-                cliente = ' '.join(cliente)
+            elif 'DANFSe v1.0' in rows:
+                cliente = rows[30]
                 cliente = pegar_texto(cliente)
-                if any(palavra in cliente for palavra in palavras_ignoradas):
-                    cliente = cliente.replace('E-mail', '').replace('Email', '').strip()
-                cliente = pegar_maiusculas(cliente)
-                novo_nome = f'NF - {cliente}.pdf'
+                novo_nome = f'NF {cliente}.pdf'
                 novo_nome = gerar_nome_unico(novo_nome)
                 os.rename(file, novo_nome)
                 break
+            else:
+                print('Arquivo não reconhecido, por favor, entrar em contato com a equipe de automação!')

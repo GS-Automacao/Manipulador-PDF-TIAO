@@ -14,15 +14,17 @@ def pegar_texto(texto: str):
     return ''.join(re.findall(r'[A-Za-zÀ-ÖØ-öø-ÿ ]+', str(texto)))
 
 def f27() -> int:
-    file = 'Boleto_CONDOMINIO CHIMAY_Venc_.pdf'
+    file = '0000006178_32053092201994040000169000000000001126017014851019.PDF'
 
     
     with open(file, 'rb') as file_bin:
         pdf = PdfReader(file_bin)
         page = pdf.pages[0]
         text = page.extract_text().split('\n')
-        for i in enumerate(text):
-            print(i)        
+        cliente = text[30]
+        print(cliente)
+
+         
  
 
 
