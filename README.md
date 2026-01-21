@@ -8,22 +8,22 @@
 ### FUNÇÕES
 
 #### DOCUMENTOS DE ADIMISSÃO:
-> Abre o arquivo, procura o nome do colaborador e renomeia o 
+> * Abre o arquivo, procura o nome do colaborador e renomeia o 
 > arquivo do colaborador com o nome do colaborador 
 
 
 #### DOCUMENTOS DE RECISSÃO:
-> Abre o arquivo, procura o nome do colaborador e renomeia o arquivo
+> * Abre o arquivo, procura o nome do colaborador e renomeia o arquivo
 > do colaborador com o nome do colaborador.
 
 
 #### BOLETOS BMP:
-> Abre o arquivo, procura o nome do cliente e renomeia o arquivo
+> * Abre o arquivo, procura o nome do cliente e renomeia o arquivo
 >do cliente com o nome do cliente
 
 
 #### BOLETOS DE COBRANÇA:
-> Terá duas opções de boleto para o cliente escolher e definir o boleto , enumeradas sendo:
+> * Terá duas opções de boleto para o cliente escolher e definir o boleto , enumeradas sendo:
 >0. Definir boleto como adm
 >1. para despesa
 >2. Para nenhum 
@@ -33,19 +33,19 @@
 
 #### FICHAS DE REGISTRO:
 
-> Abre o arquivo, procura o nome do colaborador e renomeia o
+> * Abre o arquivo, procura o nome do colaborador e renomeia o
 >arquivo do colaborador com o nome do colaborador.
 
 #### FOLHA DE PAGAMENTO, FÉRIAS E RECISSÃO:
 
-> Ele vai ler o arquivo, vai verificar se o arquivo será folha de pagamento, listagem de férias ou listagem de recissão.
+> * Ele vai ler o arquivo, vai verificar se o arquivo será folha de pagamento, listagem de férias ou listagem de recissão.
 > Dependendo do que o arqivo for, ele vai nomea-lo como : Tipo/lotação-cnpj.
 
->####RE FGTS:
->Ele renomeia o arquivo, colocando o cnpj do cliente.
+>#### RE FGTS:
+> * Ele renomeia o arquivo, colocando o cnpj do cliente.
 
 #### LISTAGEM DE CONFERÊNCIA:
-> O pdf será renomeado como lotação do colaborador
+> * O pdf será renomeado como lotação do colaborador
 
 #### RECIBOS DE PAGAMENTO FORTES:
 >Ao executar o robô , o usuário terá duas opções para escolher sendo :
@@ -82,8 +82,16 @@
 >extrai o nome do destinatário e salva cada carta em um PDF individual.
 
 #### Rendimentos Protheus: RENDIMENTO 
-    18: 'Rendimentos Fortes',
-    19: 'Planos de Saúde',
+> Abre os arquivos PDF, identifica nome e CPF no texto, agrupa as páginas duas a duas e
+> gera arquivos PDF separados por pessoa.
+
+#### Rendimentos Fortes
+>Abre arquivos PDF, identifica o início de um novo funcionário, extrai nome,
+>CPF e CNPJ, agrupa as páginas por funcionário e salva arquivos PDF nomeados com nome, CPF e CNPJ.
+    
+##### Planos de Saúde
+>Abre arquivos PDF, extrai dados de empresa, lotação, operador, plano, funcionários e dependentes, calcula
+> valores e totais e gera planilhas Excel com o detalhamento e os consolidados.
     20: 'Folha por Centro de Custo Protheus',
     21: 'Recibos de Pagamento Protheus',
     22: 'NFs Camaçari',
