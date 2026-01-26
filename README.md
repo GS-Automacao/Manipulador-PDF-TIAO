@@ -5,25 +5,26 @@
 > Em resumo o manipulador de pdfs, é responsável, por renomeia pdfs , vários tipos de arquivo, (arquivos mapeados) obj principal: 
 > renomear nota fiscal e boleto. de preifeturas como Fortalez eusebio vitória , etc.
 
+
 ### FUNÇÕES
 
 #### DOCUMENTOS DE ADIMISSÃO:
-> * Abre o arquivo, procura o nome do colaborador e renomeia o 
+>  Abre o arquivo, procura o nome do colaborador e renomeia o 
 > arquivo do colaborador com o nome do colaborador 
 
 
 #### DOCUMENTOS DE RECISSÃO:
-> * Abre o arquivo, procura o nome do colaborador e renomeia o arquivo
+>  Abre o arquivo, procura o nome do colaborador e renomeia o arquivo
 > do colaborador com o nome do colaborador.
 
 
 #### BOLETOS BMP:
-> * Abre o arquivo, procura o nome do cliente e renomeia o arquivo
+>  Abre o arquivo, procura o nome do cliente e renomeia o arquivo
 >do cliente com o nome do cliente
 
 
 #### BOLETOS DE COBRANÇA:
-> * Terá duas opções de boleto para o cliente escolher e definir o boleto , enumeradas sendo:
+>  Terá duas opções de boleto para o cliente escolher e definir o boleto , enumeradas sendo:
 >0. Definir boleto como adm
 >1. para despesa
 >2. Para nenhum 
@@ -33,19 +34,19 @@
 
 #### FICHAS DE REGISTRO:
 
-> * Abre o arquivo, procura o nome do colaborador e renomeia o
+>  Abre o arquivo, procura o nome do colaborador e renomeia o
 >arquivo do colaborador com o nome do colaborador.
 
 #### FOLHA DE PAGAMENTO, FÉRIAS E RECISSÃO:
 
-> * Ele vai ler o arquivo, vai verificar se o arquivo será folha de pagamento, listagem de férias ou listagem de recissão.
+>  Ele vai ler o arquivo, vai verificar se o arquivo será folha de pagamento, listagem de férias ou listagem de recissão.
 > Dependendo do que o arqivo for, ele vai nomea-lo como : Tipo/lotação-cnpj.
 
 >#### RE FGTS:
-> * Ele renomeia o arquivo, colocando o cnpj do cliente.
+>  Ele renomeia o arquivo, colocando o cnpj do cliente.
 
 #### LISTAGEM DE CONFERÊNCIA:
-> * O pdf será renomeado como lotação do colaborador
+>  O pdf será renomeado como lotação do colaborador
 
 #### RECIBOS DE PAGAMENTO FORTES:
 >Ao executar o robô , o usuário terá duas opções para escolher sendo :
@@ -81,24 +82,59 @@
 >Abre os arquivos PDF, identifica a quebra de cartas pelo conteúdo,
 >extrai o nome do destinatário e salva cada carta em um PDF individual.
 
-#### Rendimentos Protheus: RENDIMENTO 
+#### RENDIMENTO PROTHEUS:
 > Abre os arquivos PDF, identifica nome e CPF no texto, agrupa as páginas duas a duas e
 > gera arquivos PDF separados por pessoa.
 
-#### Rendimentos Fortes
+#### RENDIMENTOS FORTES:
 >Abre arquivos PDF, identifica o início de um novo funcionário, extrai nome,
 >CPF e CNPJ, agrupa as páginas por funcionário e salva arquivos PDF nomeados com nome, CPF e CNPJ.
     
-##### Planos de Saúde
+##### PLANOS DE SAÚDE:
 >Abre arquivos PDF, extrai dados de empresa, lotação, operador, plano, funcionários e dependentes, calcula
 > valores e totais e gera planilhas Excel com o detalhamento e os consolidados.
-    20: 'Folha por Centro de Custo Protheus',
-    21: 'Recibos de Pagamento Protheus',
-    22: 'NFs Camaçari',
-    23: 'NFs Lauro de Freitas',
-    24: 'NFs Balneário Camburiu',
-    25: 'NFs Vitória',
-    26: 'Boletos Santander',
-    27: 'NFs Curitiba',
-    28: 'NFs São Paulo',
-    29: 'Boletos Vitoria'
+
+#### FOLHA POR CENTRO DE CUSTO PROTHEUS:
+>Abre PDFs, extrai centro de custo e código, cruza as informações com uma tabela
+>Excel para obter o CNPJ e gera arquivos PDF separados por centro de custo.
+
+####  RECIBOS DE PAGAMENTOS PROTHEUS:
+>   Separa todos os arquivos .pdf que sejam recibos de pagamento emitidos pelo sistema
+> Protheus com base no funcionário, criando um arquivo individual para cada novo funcionário.
+
+#### NFS CAMAÇARI:
+> Abre o arquivo, extrai nome e CNPJ e renomeia o arquivo.
+
+#### NFS LAURO DE FREITAS;
+> Abre o arquivo, extrai nome e CNPJ e renomeia o arquivo.
+
+#### NFS BALNEÁRIO CAMBURIU:
+> Abre o arquivo, extrai nome e CNPJ e renomeia o arquivo.
+
+#### NFS VITÓRIA
+>Abre o arquivo PDF, identifica o tipo de nota,
+>extrai nome do cliente e número da NF e renomeia o arquivo.
+
+#### BOLETOS SANTANDER
+>Processa PDFs de boletos, classifica por tipo (ADM ou Despesa),
+>extrai dados do pagador e organiza os arquivos em pasta própria.
+
+#### NFS CURITIBA
+> Abre o PDF, verifica se é uma DANFSe, captura o nome do cliente
+> e salva o arquivo com nome único.
+
+#### NFS SÃO PAULO
+>Abre o arquivo, captura data e nome, e renomeia a nota fiscal 
+>
+#### BOLETOS VITÓRIA
+> Abre o PDF, identifica o boleto e renomeia com cliente e CNPJ.
+
+### LOCAL DE EXECUÇÃO
+
+
+### SETOR ALVO
+
+### DESENVOLVEDOR DO PROJETO
+> * LUIZ GUSTAVO
+> * JOAQUIM OLIVEIRA
+
