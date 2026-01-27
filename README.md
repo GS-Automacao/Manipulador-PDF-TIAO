@@ -49,10 +49,11 @@
 >  O pdf será renomeado como lotação do colaborador
 
 #### RECIBOS DE PAGAMENTO FORTES:
->Ao executar o robô , o usuário terá duas opções para escolher sendo :
->Separar por funcionário
->Separar por lotação
->Se a ecolha do usuário for igual a 1: 
+> Ao executar o robô , o usuário terá duas opções para escolher sendo :
+> 1. Separar por funcionário
+> 2. Separar por lotação   
+>    
+>Se a ecolha do usuário for igual a 1: <br>
 >Os arquivos serão separados como : lotação-nome-cnpj, caso contrário o arquivo será nomeado por lotação, como mostrado no modelo a seguir
 
 #### RECIBOS FOLK:
@@ -130,11 +131,12 @@
 > Abre o PDF, identifica o boleto e renomeia com cliente e CNPJ.
 
 ### LOCAL DE EXECUÇÃO
-
+> O ROBÔ RODA MANUAL
 
 ### SETOR ALVO
+> * FINANCEIRO
 
 ### DESENVOLVEDOR DO PROJETO
-> * LUIZ GUSTAVO
-> * JOAQUIM OLIVEIRA
-
+> * desenvolvedor -> Luiz Gustavo
+> * Ajustes -> Joaquim Oliveira
+> * Documentação -> Lidia araujo
