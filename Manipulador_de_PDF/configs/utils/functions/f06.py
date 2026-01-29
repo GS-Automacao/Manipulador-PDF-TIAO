@@ -35,24 +35,36 @@ def f06() -> int:
             for page_pdf in tqdm(pdf_reader.pages):
                 page = page_pdf.extract_text().split('\n')
                 tipo = ' '.join(page[0].split()[:3])
+                diferenca = page[3]
+                
                 # print(tipo)
 
                 # Verifica se já há umas pasta para o tipo
                 if not os.path.exists(f'Arquivos/{tipo}'):
                     os.mkdir(f'Arquivos/{tipo}')
 
-                # Verifica o tipo de arquivo
-                if tipo == 'Folha de Pagamento':
-                    lotacao_nova = page[14+i]
-                elif tipo == 'Listagem de Férias':
-                    lotacao_nova = page[13+i]
-                elif tipo == 'Listagem de Rescisão':
-                    lotacao_nova = page[13+i]
-                # print(lotacao_nova)
+                if diferenca == "Licenciado para: ":
+                    # Verifica o tipo de arquivo
+                    if tipo == 'Folha de Pagamento':
+                        lotacao_nova = page[17+i] 
+                    elif tipo == 'Listagem de Férias':
+                        lotacao_nova = page[16+i] 
+                    elif tipo == 'Listagem de Rescisão':
+                        lotacao_nova = page[16+i] 
+
+                else: 
+                    if tipo == 'Folha de Pagamento':
+                        lotacao_nova = page[14+i] 
+                    elif tipo == 'Listagem de Férias':
+                        lotacao_nova = page[13+i] 
+                    elif tipo == 'Listagem de Rescisão':
+                        lotacao_nova = page[13+i]
+                
 
                 # Verifica se está na página de resumo ou se a lotacao for a mesma, se sim,
                 # junta as páginas, caso contrário, salva o arquivo atual e cria um pdf novo.
                 # if ('Total Geral' in lotacao_nova) or (lotacao_nova != lotacao):
+                
                 if (lotacao_nova != lotacao):
                     if pdf_writer.pages:
                         cnpj = ''
